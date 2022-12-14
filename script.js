@@ -33,20 +33,24 @@ var drawPizza = (cx, cy, r, start, end, text) => {
 ctx.fillStyle = '#FF0000'
 //drawPizza(100, 100, 50, 0.25, 0.5)
 
-var m = 1 / list.length
-var j = 0
-var s = 0
-async function spin(iter) {
+var m, j, s;
+function spin(iter, speed) {
+	iter += speed;
 	ctx.clearRect(0, 0, canvaswidth, canvasheight)
+	m = 1 / list.length
+	j = 0
+	s = 0
 	list.forEach((item, i, arr) => {
 		ctx.fillStyle = colors[i]
-		drawPizza(250, 250, 250, iter + (-j), iter + (-(j + m)), list[i])
-		console.log(j, j + m, i)
+		drawPizza(250, 250, 250, iter -j, iter -(j + m), list[i])
+		
 		j += m
 	})
-	setTimeout(() => { spin(Math.pow(iter, 0.99)) }, 10)
+	//console.log(iter, speed)
+	//if(iter < 0.5) return
+	requestAnimationFrame(() => {spin(iter, speed*0.95)})
 }
 function startSpin() {
-	spin(100)
+	spin(0, 0.5)
 }
 //
