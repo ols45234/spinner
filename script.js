@@ -1,17 +1,22 @@
 var canvas = document.getElementById("canvas");
-var canvaswidth = 1024;
+var canvaswidth = 512;
 var canvasheight = 512;
 
 canvas.width = canvaswidth;
 canvas.height = canvasheight;
 var ctx = canvas.getContext("2d");
-var list = ['1', '2', '3', '5', '10']
-var colors = ['red', 'green', 'blue', 'yellow', 'black']
+var list = [
+	{name: '1', color: 'red'},
+	{name: '2', color: 'green'},
+	{name: '3', color: 'blue'},
+	{name: '5', color: 'yellow'},
+	{name: '10', color: 'black'}]
 
-var drawPizza = (cx, cy, r, start, end, text) => {
+var drawPizza = (cx, cy, r, start, end, color, text) => {
 	e = Math.PI * (end * 2)
 	s = Math.PI * (start * 2)
 	//ctx.clearRect(0,0,500,500);
+	ctx.fillStyle = color
 	ctx.beginPath()
 
 	ctx.moveTo(cx, cy)
@@ -41,8 +46,8 @@ function spin(iter, speed) {
 	j = 0
 	s = 0
 	list.forEach((item, i, arr) => {
-		ctx.fillStyle = colors[i]
-		drawPizza(250, 250, 250, iter -j, iter -(j + m), list[i])
+		//ctx.fillStyle = item.color;
+		drawPizza(250, 250, 250, iter - j, iter - (j + m), item.color, item.name)
 		
 		j += m
 	})
@@ -52,5 +57,9 @@ function spin(iter, speed) {
 }
 function startSpin() {
 	spin(0, 0.5)
+}
+
+function addElement() {
+
 }
 //

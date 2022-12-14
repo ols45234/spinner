@@ -5,8 +5,23 @@
 </head>
 
 <body>
-    <canvas id="canvas"></canvas>
-    <button type="button" id="spin" onClick="startSpin()">Поехали!</button>
+    <div style="display:flex">
+        <div id="canvas-div">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div id="item-list-div">
+            <button type="button" id="item-list-addElement" onClick="addElement()">+</button>
+            <div id="item-div-0" style="display:flex">
+                <input id="item-name-0" placeholder="текст" type="text" maxlength="10">text</input>
+                <input id="item-color-0" placeholder="цвет" type="color">#000000</input>
+                <button type="button" id="item-remove-0">-</button>
+            </div>
+        </div>
+
+
+        <button type="button" id="spin" onClick="startSpin()">Поехали!</button>
+        
+    </div>
     <script src="script.js" type="application/javascript"></script>
 </body>
 
