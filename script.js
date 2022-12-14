@@ -8,7 +8,6 @@ var ctx = canvas.getContext("2d");
 var list = ['1', '2', '3', '5', '10']
 var colors = ['red', 'green', 'blue', 'yellow', 'black']
 
-var drawLine = (x1, y1, x2, y2) => { ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); ctx.closePath() }
 var drawPizza = (cx, cy, r, start, end, text) => {
 	e = Math.PI * (end * 2)
 	s = Math.PI * (start * 2)
