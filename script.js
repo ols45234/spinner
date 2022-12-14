@@ -10,7 +10,8 @@ var list = [
 	{name: '2', color: 'green'},
 	{name: '3', color: 'blue'},
 	{name: '5', color: 'yellow'},
-	{name: '10', color: 'black'}]
+	{name: '10', color: 'black'},
+]
 
 var drawPizza = (cx, cy, r, start, end, color, text) => {
 	e = Math.PI * (end * 2)
@@ -60,6 +61,21 @@ function startSpin() {
 }
 
 function addElement() {
+	let mainDiv = document.getElementById('item-list-div')
+	let id = list.length;
 
+	mainDiv.innerHTML += `<div id="item-div-${id}" style="display:flex">
+    <input id="item-name-${id}" placeholder="текст" type="text" maxlength="10" onChange="changeName(${id})">
+    <input id="item-color-${id}" placeholder="цвет" type="color" onChange="console.log(this)">
+    <button type="button" id="item-remove-${id}">-</button>`
+	list.push({});
+}
+
+function changeName(id) {
+	list[id].name = document.getElementById(`item-name-${id}`).value;
+}
+
+function changeColor(id) {
+	list[id].color = document.getElementById(`item-color-${id}`).value;
 }
 //
