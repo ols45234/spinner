@@ -46,4 +46,7 @@ async function spin(iter) {
 	})
 	setTimeout(() => { spin(Math.pow(iter, 0.99)) }, 10)
 }
+function startSpin() {
+	spin(100)
+}
 //
